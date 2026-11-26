@@ -1,0 +1,7 @@
+{
+  "id": "mocha-dusk",
+  "name": "Mocha Dusk",
+  "version": "1.0.0",
+  "description": "A dark pastel theme with mauve accents for the interface and terminal.",
+  "permissions": ["themes"]
+}
