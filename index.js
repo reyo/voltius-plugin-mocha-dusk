@@ -1,11 +1,15 @@
-const theme = {
-  id: "mocha-dusk",
-  name: "Mocha Dusk",
+const themeDefaults = {
   builtIn: false,
   uiFontFamily: "'Inter Variable', system-ui, sans-serif",
   uiFontSize: 14,
   terminalFontFamily: "'Source Code Pro', monospace",
   terminalFontSize: 14,
+};
+
+const mochaDusk = {
+  id: "mocha-dusk",
+  name: "Mocha Dusk",
+  ...themeDefaults,
   ui: {
     bgTerminal: "#1e1e2e",
     bgStatusBar: "#181825",
@@ -64,8 +68,74 @@ const theme = {
   },
 };
 
+const latteDawn = {
+  id: "latte-dawn",
+  name: "Latte Dawn",
+  ...themeDefaults,
+  ui: {
+    bgTerminal: "#eff1f5",
+    bgStatusBar: "#e6e9ef",
+    bgBase: "#eff1f5",
+    bgToolbar: "#e6e9ef",
+    bgCard: "#e6e9ef",
+    bgCardHover: "#dce0e8",
+    bgCardAvatar: "#ccd0da",
+    bgInput: "#eff1f5",
+    bgInputHover: "#dce0e8",
+    bgElevated: "#e6e9ef",
+    bgModal: "#eff1f5",
+    border: "#bcc0cc",
+    borderHover: "#7c7f93",
+    textDim: "#6c6f85",
+    textMuted: "#5c5f77",
+    textSecondary: "#5c5f77",
+    textPrimary: "#4c4f69",
+    textBright: "#4c4f69",
+    accent: "#8839ef",
+    accentHover: "#1e66f5",
+    tabBg: "#e6e9ef",
+    tabActiveBg: "#eff1f5",
+    tabActiveText: "#8839ef",
+    tabActiveBorder: "#8839ef",
+    vaultTabBg: "#dce0e8",
+    vaultTabActiveBg: "#eff1f5",
+    statusConnected: "#40a02b",
+    statusError: "#d20f39",
+    statusConnecting: "#1e66f5",
+    statusWarning: "#fe640b",
+    textNotice: "#1e66f5",
+  },
+  terminal: {
+    background: "#eff1f5",
+    foreground: "#4c4f69",
+    cursor: "#dc8a78",
+    selectionBackground: "#dc8a78",
+    selectionForeground: "#eff1f5",
+    black: "#5c5f77",
+    red: "#d20f39",
+    green: "#40a02b",
+    yellow: "#df8e1d",
+    blue: "#1e66f5",
+    magenta: "#ea76cb",
+    cyan: "#179299",
+    white: "#acb0be",
+    brightBlack: "#6c6f85",
+    brightRed: "#de293e",
+    brightGreen: "#49af3d",
+    brightYellow: "#eea02d",
+    brightBlue: "#456eff",
+    brightMagenta: "#fe85d8",
+    brightCyan: "#2d9fa8",
+    brightWhite: "#bcc0cc",
+  },
+};
+
 export default function register(api) {
   if (!api.isActive()) return;
-  api.themes.register(theme);
-  return () => api.themes.unregister(theme.id);
+  api.themes.register(mochaDusk);
+  api.themes.register(latteDawn);
+  return () => {
+    api.themes.unregister(latteDawn.id);
+    api.themes.unregister(mochaDusk.id);
+  };
 }

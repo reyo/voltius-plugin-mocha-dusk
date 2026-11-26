@@ -1,7 +1,7 @@
 {
   "id": "mocha-dusk",
   "name": "Mocha Dusk",
-  "version": "1.0.0",
-  "description": "A dark pastel theme with mauve accents for the interface and terminal.",
+  "version": "1.1.0",
+  "description": "Mocha Dusk and Latte Dawn bring dark and light pastel palettes to the interface and terminal.",
   "permissions": ["themes"]
 }

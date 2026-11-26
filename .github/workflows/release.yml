@@ -23,4 +23,4 @@ jobs:
           test "$GITHUB_REF_NAME" = "v$version"
           gh release create "$GITHUB_REF_NAME" index.js manifest.json \
             --verify-tag --title "Mocha Dusk $version" \
-            --notes "Mocha Dusk for the Voltius interface and terminal. Download both assets for local installation."
+            --notes "Mocha Dusk (dark) and Latte Dawn (light) for the Voltius interface and terminal. Download both assets for local installation."
