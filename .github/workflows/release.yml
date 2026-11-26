@@ -1,0 +1,26 @@
+name: Publish theme release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Publish Voltius plugin assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(jq -er .version manifest.json)
+          test "$GITHUB_REF_NAME" = "v$version"
+          gh release create "$GITHUB_REF_NAME" index.js manifest.json \
+            --verify-tag --title "Mocha Dusk $version" \
+            --notes "Mocha Dusk for the Voltius interface and terminal. Download both assets for local installation."
